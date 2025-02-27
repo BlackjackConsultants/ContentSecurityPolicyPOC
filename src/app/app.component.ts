@@ -31,6 +31,9 @@ export class AppComponent implements OnInit {
     this.evaluation();
   }
 
+  /**
+   * parsing creates ast from string expression. this allows it to work with an object that is tokenized.
+   */
   parsing() {
     // parser
     let expression = "2 + 3 * 5";
@@ -38,20 +41,27 @@ export class AppComponent implements OnInit {
     console.log('ast: ', ast);
   }
 
-  evaluation() {
-    // evaluation
-    const expression = '2 + 3 * a';
-    const context = { a: 10 };
-    this.result = this.evalService.simpleEval(expression, context); // 32
-    console.log(expression, this.result);
-  }
-
+  /**
+   * compilation converts ast to function. this allows it to be executed multiple times.
+   */
   compilation() {
     const expression = 'x + y';
     const fn = this.compilerService.compile(expression);
     const context = { x: 1, y: 2 };
     const value = this.compilerService.simpleCall(fn, context); // 3
     console.log(expression, value);
+  }
+
+  /**
+   * evaluation executes the function. this allows it to be executed
+   * with different contexts and expressions.
+   */
+  evaluation() {
+    // evaluation
+    const expression = '2 + 3 * a';
+    const context = { a: 10 };
+    this.result = this.evalService.simpleEval(expression, context); // 32
+    console.log(expression, this.result);
   }
 
   async evaluationAsync() {
