@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     const fn = this.compilerService.compile(expression);
     const context = { x: 1, y: 2 };
     const value = this.compilerService.simpleCall(fn, context); // 3
-    console.log(expression, value);
+    console.log(expression + ' = ', value);
   }
 
   /**
@@ -61,7 +61,7 @@ export class AppComponent implements OnInit {
     const expression = '2 + 3 * a';
     const context = { a: 10 };
     this.result = this.evalService.simpleEval(expression, context); // 32
-    console.log(expression, this.result);
+    console.log(expression + ' = ', this.result);
   }
 
   async evaluationAsync() {
