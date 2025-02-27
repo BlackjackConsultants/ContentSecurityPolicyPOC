@@ -1,13 +1,4 @@
-<h1>Content Security Policy</h1>
-<br>
-<input type="text" [(ngModel)]="safeEvalValue" placeholder="Enter your name" />
-<br>
-<br>
-<button (click)="safeEval()">Test unsafe-eval</button>
-<br>
-<br>
-<label>
-    <input type="checkbox" [(ngModel)]="useWindowEval" />
-    Enable window.eval
-</label>
-<br>
+<div>
+    <p>Expression: {{ expression }}</p>
+    <p>Result: {{ result }}</p>
+  </div>
