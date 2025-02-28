@@ -12,12 +12,23 @@ import { ParserService, EvalService, CompilerService, DiscoveryService } from '@
 export class AppComponent implements OnInit {
   expression: string | undefined;
   result: any;
-
+  // create services using dependency injection
   constructor(
     private parserService: ParserService,
     private evalService: EvalService,
     private compilerService: CompilerService,
   ) { }
+
+  // create services using new operator
+  // private parserService: ParserService;
+  // private evalService: EvalService;
+  // private compilerService: CompilerService;
+
+  // constructor() { 
+  //   this.parserService = new ParserService();
+  //   this.evalService = new EvalService(this.parserService);
+  //   this.compilerService = new CompilerService(this.parserService, this.evalService); 
+  // }
 
   /**
    * code from https://github.com/zvenigora/ng-eval
