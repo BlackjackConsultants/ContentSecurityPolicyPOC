@@ -40,6 +40,18 @@ export class AppComponent implements OnInit {
     this.compilation();
     // executes the function
     this.evaluation();
+    // test assign
+    this.assign();
+  }
+
+  /**
+   * assign method assigns a value to a variable in the context.
+   */
+  assign() {
+    const expression = 'a = 10';
+    const context = { a: 3 }; 
+    this.evalService.simpleEval(expression, context);
+    console.log('assign: a = ', context.a);
   }
 
   /**
