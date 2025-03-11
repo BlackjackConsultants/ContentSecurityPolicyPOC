@@ -42,16 +42,30 @@ export class AppComponent implements OnInit {
     this.evaluation();
     // test assign
     this.assign();
+    // test assign
+    this.assignObjects();
   }
 
   /**
    * assign method assigns a value to a variable in the context.
    */
   assign() {
-    const expression = 'a = 10';
-    const context = { a: 3 }; 
-    this.evalService.simpleEval(expression, context);
-    console.log('assign: a = ', context.a);
+    const expression = 'x = y';
+    const fn = this.compilerService.compile(expression);
+    const context = { x: 0, y: 2 };
+    const value = this.compilerService.simpleCall(fn, context); // 3
+    console.log(`assign: expression = ${expression}, value = ${value}, context=`, context);
+  }
+
+  /**
+   * assign method assigns a value to a variable in the context.
+   */
+  assignObjects() {
+    const expression = 'x = y';
+    const fn = this.compilerService.compile(expression);
+    const context = { x: 0, y: { firstName: 'jorge', lastName: 'perez'} };
+    const value = this.compilerService.simpleCall(fn, context); // 3
+    console.log(`assignObjects: expression = ${expression}, value = ${value}, context=`, context);
   }
 
   /**
@@ -72,7 +86,7 @@ export class AppComponent implements OnInit {
     const fn = this.compilerService.compile(expression);
     const context = { x: 1, y: 2 };
     const value = this.compilerService.simpleCall(fn, context); // 3
-    console.log(expression + ' = ', value);
+    console.log(`compilation: expression = ${expression}, value = ${value}, context=`, context);
   }
 
   /**
