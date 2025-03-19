@@ -9,7 +9,7 @@
       http-equiv="Content-Security-Policy"
       content="
         default-src 'self';
-        script-src 'self';
+        script-src 'self' 'unsafe-eval'; <!-- add 'unsafe-eval' string to allow eva() remove to restrict it -->
         style-src 'self';
         img-src 'self';
         object-src 'none';

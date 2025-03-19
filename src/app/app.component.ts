@@ -44,6 +44,20 @@ export class AppComponent implements OnInit {
     this.assign();
     // test assign
     this.assignObjects();
+    // troubleshooting
+    this.troubleShooting();
+  }
+
+  troubleShooting() {
+    // const expression2 = `({'k-content-green': mappingStatus === 0, 'k-content-red': mappingStatus ===  1, 'k-content-gray': mappingStatus === 2, 'k-content-yellow': mappingStatus === 3})`;
+    // evaluation
+    const mappingStatus = 0;
+    const expression = `({ x: 1, y: 2 })`;
+    const expression2 = `({'k-content-green': mappingStatus === 0})`;
+    this.result = eval(expression2);
+    console.debug('using eval = ', this.result);
+    this.result = this.evalService.simpleEval(expression2); // 32
+    console.debug('using simpleEval = ', this.result);
   }
 
   /**
@@ -94,11 +108,19 @@ export class AppComponent implements OnInit {
    * with different contexts and expressions.
    */
   evaluation() {
-    // evaluation
-    const expression = '2 + 3 * a';
+    // evaluation 1
+    let expression = '2 + 3 * a';
     const context = { a: 10 };
     this.result = this.evalService.simpleEval(expression, context); // 32
-    console.log(expression + ' = ', this.result);
+    console.debug(expression + ' = ', this.result);
+    // evaluation 2
+    const mappingStatus = 0;
+    expression = `({ x: 1, y: 2 })`;
+    const expression2 = `({'k-content-green': mappingStatus === 0})`;
+    this.result = eval(expression2);
+    console.debug('using eval = ', this.result);
+    this.result = this.evalService.simpleEval(expression2); // 32
+    console.debug('using simpleEval = ', this.result);
   }
 
   async evaluationAsync() {
