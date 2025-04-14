@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ParserService, EvalService, CompilerService, DiscoveryService } from '@zvenigora/ng-eval-core';
+import { AngularExpressionParser } from './angular-expression-parser';
 
 @Component({
   selector: 'app-root',
@@ -46,6 +47,11 @@ export class AppComponent implements OnInit {
     this.assignObjects();
     // troubleshooting
     this.troubleShooting();
+
+    // angular expression parsing
+    const aep = new AngularExpressionParser();
+    aep.example3();
+
   }
 
   troubleShooting() {
@@ -108,12 +114,12 @@ export class AppComponent implements OnInit {
    * with different contexts and expressions.
    */
   evaluation() {
-    // evaluation 1
+    // evaluation 1 ========================================================================
     let expression = '2 + 3 * a';
     const context = { a: 10 };
     this.result = this.evalService.simpleEval(expression, context); // 32
-    console.debug(expression + ' = ', this.result);
-    // evaluation 2
+    console.debug('evaluation1: ' + expression + ' = ', this.result);
+    // evaluation 2 ========================================================================
     const mappingStatus = 0;
     expression = `({ x: 1, y: 2 })`;
     const expression2 = `({'k-content-green': mappingStatus === 0})`;
@@ -121,6 +127,11 @@ export class AppComponent implements OnInit {
     console.debug('using eval = ', this.result);
     this.result = this.evalService.simpleEval(expression2); // 32
     console.debug('using simpleEval = ', this.result);
+    // evaluation 3 ========================================================================
+    const expression3 = `model.FileName || ''`;
+    const context3 = { model: { FileName: 'test.txt' } };
+    this.result = this.evalService.simpleEval(expression3, context3); // test.txt`;
+    console.debug('evaluation3: ' + expression3 + ' = ', this.result);
   }
 
   async evaluationAsync() {
