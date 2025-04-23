@@ -128,7 +128,7 @@ export class AppComponent implements OnInit {
     this.result = this.evalService.simpleEval(expression2); // 32
     console.debug('using simpleEval = ', this.result);
     // evaluation 3 ========================================================================
-    const expression3 = `model.FileName || ''`;
+    const expression3 = `model.FileName ? model.FileName : ''`; // instead of this: const expression3 = `model.FileName || ''`;
     const context3 = { model: { FileName: 'test.txt' } };
     this.result = this.evalService.simpleEval(expression3, context3); // test.txt`;
     console.debug('evaluation3: ' + expression3 + ' = ', this.result);
