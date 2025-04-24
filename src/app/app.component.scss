@@ -1,0 +1,24 @@
+::ng-deep app-root {
+    h1 {
+        width: 100% !important;
+        color: black !important;
+        background-color: rgb(157, 156, 156) !important;
+    }
+    
+    h2{
+        width: 100% !important;
+        color: purple !important;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: purple;
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: purple;
+        background-color: rgb(236, 235, 235) !important;
+    }
+    
+    h3{
+        width: 100% !important;
+        color: blue !important;
+    }
+}

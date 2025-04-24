@@ -1,25 +1,24 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>CspUnsafeVal</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta
-      http-equiv="Content-Security-Policy"
-      content="
-        default-src 'self';
-        script-src 'self' 'unsafe-eval'; <!-- add 'unsafe-eval' string to allow eva() remove to restrict it -->
-        style-src 'self';
-        img-src 'self';
-        object-src 'none';
-        base-uri 'self';
-        connect-src 'self';
-      "
-    />
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval';" />
+      <!-- 
+            default-src 'self';
+            style-src 'self';
+            img-src 'self';
+            object-src 'none';
+            base-uri 'self';
+            connect-src 'self'; -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>

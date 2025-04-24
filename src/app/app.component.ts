@@ -8,7 +8,7 @@ import { AngularExpressionParser } from './angular-expression-parser';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   expression: string | undefined;
@@ -19,6 +19,10 @@ export class AppComponent implements OnInit {
     private evalService: EvalService,
     private compilerService: CompilerService,
   ) { }
+
+  clickHandler() {
+    console.log('Button clicked!');
+  }
 
   // create services using new operator
   // private parserService: ParserService;

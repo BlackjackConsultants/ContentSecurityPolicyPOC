@@ -1,4 +1,34 @@
+<h1>Content Security Policies</h1>
+<h2>default-src</h2>
+<h2>script-src</h2>
+<h3>Unsafe-inline</h3>
+<h4>Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'self'"</h4>
+<p>
+  In order to trigger teh CSP error, you have to execute the event handler. because this is an onclick, you have to 
+  execute the button below.  In the example below, the inline event handler is not executed because it violates the CSP directive "script-src 'self'".
+</p>
+<div class="example">
+
+</div>
+<button onclick="clickHandler()">Set CSP rule in html doc</button>
+<h3>unsafe-eval</h3>
+<h4>Third Party Tools</h4>
+<p>The zvenigora npm package passes the unsafe-eval security policy but the angular expression does not.</p>
+<h5>zvenigora/ng-eval-core</h5>
 <div>
-    <p>Expression: {{ expression }}</p>
-    <p>Result: {{ result }}</p>
-  </div>
+  <p>Expression: {{ expression }}</p>
+  <p>Result: {{ result }}</p>
+</div>
+<h5>angular-expressions</h5>
+<div>
+  <p>Expression: {{ expression }}</p>
+  <p>Result: {{ result }}</p>
+</div>
+<h2>style-src</h2>
+<h2>img-src</h2>
+<h2>connect-src</h2>
+<h2>frame-src </h2>
+<div>
+  <p>Expression: {{ expression }}</p>
+  <p>Result: {{ result }}</p>
+</div>
