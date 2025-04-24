@@ -13,7 +13,8 @@ import { AngularExpressionParser } from './angular-expression-parser';
 export class AppComponent implements OnInit {
   expression: string | undefined;
   result: any;
-  imagePath = 'assets/images/lion.png';
+  imagePath = 'assets/images/lion2.png';
+  imagePath2 = 'assets/images/lion2.png';
   // create services using dependency injection
   constructor(
     private parserService: ParserService,
