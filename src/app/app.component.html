@@ -8,10 +8,9 @@
   execute the button below.  In the example below, the inline event handler is not executed because it violates the CSP directive "script-src 'self'".
 </p>
 <div class="example">
-
 </div>
 
-<img [src]="imagePath"  />
+<img [src]="imagePath" (error)="onImageError($event)" width="300px" />
 
 <h3>unsafe-eval</h3>
 <h4>Third Party Tools</h4>

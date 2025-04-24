@@ -13,7 +13,7 @@ import { AngularExpressionParser } from './angular-expression-parser';
 export class AppComponent implements OnInit {
   expression: string | undefined;
   result: any;
-  imagePath = 'assets/images/car-lease.png';
+  imagePath = 'assets/images/lion.png';
   // create services using dependency injection
   constructor(
     private parserService: ParserService,
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
   onImageError(event: Event): void {
     const imgElement = event.target as HTMLImageElement;
-    imgElement.src = 'assets/images/car-lease.png';
+    imgElement.src = 'assets/images/noimage.png';
   }
 
   /**
