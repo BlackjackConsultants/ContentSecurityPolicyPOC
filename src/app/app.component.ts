@@ -13,6 +13,7 @@ import { AngularExpressionParser } from './angular-expression-parser';
 export class AppComponent implements OnInit {
   expression: string | undefined;
   result: any;
+  imagePath = 'assets/images/car-lease.png';
   // create services using dependency injection
   constructor(
     private parserService: ParserService,
@@ -24,16 +25,10 @@ export class AppComponent implements OnInit {
     console.log('Button clicked!');
   }
 
-  // create services using new operator
-  // private parserService: ParserService;
-  // private evalService: EvalService;
-  // private compilerService: CompilerService;
-
-  // constructor() { 
-  //   this.parserService = new ParserService();
-  //   this.evalService = new EvalService(this.parserService);
-  //   this.compilerService = new CompilerService(this.parserService, this.evalService); 
-  // }
+  onImageError(event: Event): void {
+    const imgElement = event.target as HTMLImageElement;
+    imgElement.src = 'assets/images/car-lease.png';
+  }
 
   /**
    * code from https://github.com/zvenigora/ng-eval
